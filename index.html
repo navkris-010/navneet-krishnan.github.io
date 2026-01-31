@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navneet Krishnan | Electrical & Electronics Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0A1628;
+            --secondary: #1A2B4A;
+            --accent: #00D9FF;
+            --accent-warm: #FF6B35;
+            --text: #E8E8E8;
+            --text-muted: #A0A0A0;
+            --highlight: #FFC857;
+        }
+
+        body {
+            font-family: 'IBM Plex Mono', monospace;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated background particles */
+        .bg-particles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            opacity: 0.03;
+            background-image: 
+                radial-gradient(circle at 20% 30%, var(--accent) 1px, transparent 1px),
+                radial-gradient(circle at 80% 70%, var(--accent-warm) 1px, transparent 1px),
+                radial-gradient(circle at 40% 80%, var(--highlight) 1px, transparent 1px);
+            background-size: 100px 100px, 150px 150px, 120px 120px;
+            animation: float 60s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(100px, 100px); }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation */
+        nav {
+            padding: 2rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent), var(--highlight));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 0 4rem;
+            animation: fadeIn 1s ease-out 0.3s backwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero-text .highlight-text {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--accent);
+        }
+
+        .stat-number {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background: var(--highlight);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--text-muted);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 6rem 0;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-warm));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .about-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .skill-category h4 {
+            font-family: 'Syne', sans-serif;
+            color: var(--accent);
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+        }
+
+        .skill-category ul {
+            list-style: none;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .skill-category li {
+            padding: 0.3rem 0;
+        }
+
+        .skill-category li::before {
+            content: '▹ ';
+            color: var(--accent);
+            margin-right: 0.5rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-warm));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--accent);
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 217, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .project-year {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+        }
+
+        .project-card h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .project-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            font-size: 0.7rem;
+            padding: 0.4rem 0.8rem;
+            background: rgba(0, 217, 255, 0.1);
+            color: var(--accent);
+            border-radius: 6px;
+            border: 1px solid rgba(0, 217, 255, 0.2);
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: linear-gradient(180deg, var(--accent), var(--accent-warm));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3.5rem;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 3px solid var(--primary);
+        }
+
+        .timeline-item:hover::before {
+            background: var(--accent-warm);
+            transform: scale(1.3);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.3rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .position {
+            color: var(--accent);
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-item .duration {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-item ul {
+            list-style: none;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .timeline-item li {
+            padding: 0.3rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .timeline-item li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* Publications */
+        .publication-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .publication-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--accent);
+            transform: translateX(10px);
+        }
+
+        .publication-card h3 {
+            font-family: 'Syne', sans-serif;
+            color: var(--text);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .publication-meta {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .publication-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        /* Achievements */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .achievement-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 1.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .achievement-card::after {
+            content: '🏆';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 2rem;
+            opacity: 0.1;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--highlight);
+        }
+
+        .achievement-card:hover::after {
+            opacity: 0.3;
+        }
+
+        .achievement-card h4 {
+            font-family: 'Syne', sans-serif;
+            color: var(--highlight);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .achievement-card p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .contact-info {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .contact-info p {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .contact-link:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--accent);
+            transform: translateX(10px);
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 217, 255, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 3rem 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .hero-content,
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .hero {
+                padding: 3rem 0 2rem;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-text .subtitle {
+                font-size: 1rem;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 0.8rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-particles"></div>
+    
+    <div class="container">
+        <!-- Navigation -->
+        <nav>
+            <div class="logo">NK</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Navneet Krishnan</h1>
+                    <p class="subtitle">
+                        Electrical & Electronics Engineer specializing in 
+                        <span class="highlight-text">Embedded Systems</span>, 
+                        <span class="highlight-text">Power Electronics</span>, and 
+                        <span class="highlight-text">Control Systems</span>
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                        <a href="#projects" class="btn btn-secondary">View Projects</a>
+                    </div>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <span class="stat-number">8.27</span>
+                        <span class="stat-label">CGPA / 10</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">7.5</span>
+                        <span class="stat-label">IELTS Band</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">3+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">Engineering solutions through curiosity and innovation</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>
+                        My journey in engineering began not in a classroom, but through everyday curiosity—taking apart appliances to understand how thousands of tiny components work together. This hands-on approach has defined my career, driving me to bridge the gap between theoretical knowledge and real-world applications.
+                    </p>
+                    <p>
+                        I hold a B.Tech in Electrical and Electronics Engineering from PES University, Bengaluru, where I developed a strong foundation in power electronics, embedded systems, and control theory. My academic work has been complemented by industry experience at Hindustan Unilever, where I've led digital transformation initiatives and automation projects.
+                    </p>
+                    <p>
+                        Currently, I'm preparing to pursue a Master's degree in Electrical Engineering, focusing on embedded systems and intelligent control platforms. My goal is to become a technology architect designing end-to-end systems that harmonize power electronics with applied AI.
+                    </p>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Embedded Systems</h4>
+                        <ul>
+                            <li>ESP32, Arduino, STM32</li>
+                            <li>Microcontroller Programming</li>
+                            <li>VHDL & PCB Design</li>
+                            <li>IoT Integration</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Power & Control</h4>
+                        <ul>
+                            <li>MATLAB/Simulink</li>
+                            <li>Power Electronics</li>
+                            <li>Motor Control Systems</li>
+                            <li>CFD Analysis (Ansys)</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Software & AI</h4>
+                        <ul>
+                            <li>Python (TensorFlow, NumPy)</li>
+                            <li>Machine Learning</li>
+                            <li>SQL & Data Analysis</li>
+                            <li>Genetic Algorithms</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Tools & Methods</h4>
+                        <ul>
+                            <li>Git & Version Control</li>
+                            <li>Scrum Methodology</li>
+                            <li>LaTeX Documentation</li>
+                            <li>System Architecture</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">Bridging theory and practice through hands-on engineering</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">⚡</div>
+                        <span class="project-year">2022-2023</span>
+                    </div>
+                    <h3>500 VA Sinusoidal Inverter</h3>
+                    <p>
+                        Designed and implemented a single-phase DC-AC inverter using IGBT-based H-bridge and Arduino Mega for SPWM control. Achieved 98% efficiency and <3% THD with a 40% reduction in weight and cost compared to conventional designs.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Power Electronics</span>
+                        <span class="tag">MATLAB/Simulink</span>
+                        <span class="tag">Arduino</span>
+                        <span class="tag">IGBT Control</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">🚗</div>
+                        <span class="project-year">2022</span>
+                    </div>
+                    <h3>Electric Vehicle Drivetrain Design</h3>
+                    <p>
+                        Led a team to design a 12.5 kW BLDC motor and complete drivetrain for a 3-wheeler cargo EV. Conducted CFD thermal analysis, battery optimization, and performance simulation. Won All-India Bosch IEEE Hackathon 2022.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Motor Design</span>
+                        <span class="tag">CFD Analysis</span>
+                        <span class="tag">Battery Systems</span>
+                        <span class="tag">MATLAB/Simulink</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">🤖</div>
+                    </div>
+                    <h3>IoT Fault Detection System</h3>
+                    <p>
+                        Built an ESP32-based system with autoencoder neural network for real-time anomaly detection. Achieved 98% detection accuracy using TensorFlow and implemented real-time notifications via Telegram API.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">IoT</span>
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag">ESP32</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">🔋</div>
+                        <span class="project-year">2022</span>
+                    </div>
+                    <h3>Distributed Generation Optimization</h3>
+                    <p>
+                        Analyzed IEEE-14 bus system using Genetic Algorithm to optimize DG placement and sizing. Achieved significant reduction in power losses while improving voltage profiles and network efficiency.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Power Systems</span>
+                        <span class="tag">Genetic Algorithm</span>
+                        <span class="tag">Optimization</span>
+                        <span class="tag">MATLAB</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section">
+            <div class="section-header">
+                <h2 class="section-title">Professional Experience</h2>
+                <p class="section-subtitle">Applying engineering principles to real-world challenges</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Hindustan Unilever Limited</h3>
+                    <div class="position">UniOps Business Partner</div>
+                    <div class="duration">February 2025 - Present | Mumbai, India</div>
+                    <ul>
+                        <li>Orchestrating large-scale digital system architectures for D2C platforms</li>
+                        <li>Deploying predictive AI models for automated customer decision logic</li>
+                        <li>Achieved ₹3 Cr+ turnover via D2C channel within eight months</li>
+                        <li>Optimizing feature performance using Scrum and Gantt methodologies</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Hindustan Unilever Limited</h3>
+                    <div class="position">Digital Web Specialist</div>
+                    <div class="duration">July 2024 - January 2025 | Bengaluru, India</div>
+                    <ul>
+                        <li>Enhanced web UI/UX and introduced gamified elements for Lakmé brand</li>
+                        <li>Collaborated with data scientists on AI-based user persona development</li>
+                        <li>Improved personalization and retargeting effectiveness</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Hindustan Unilever Limited</h3>
+                    <div class="position">Trainee - ECT Program</div>
+                    <div class="duration">June 2023 - June 2024 | Bengaluru, India</div>
+                    <ul>
+                        <li>Developed 'Employee Twin' model for natural language querying in dashboards</li>
+                        <li>Automated processes in OTM Reimagine Planning</li>
+                        <li>Improved data accessibility and operational efficiency</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Hindustan Unilever Limited</h3>
+                    <div class="position">Intern - PEGA Developer</div>
+                    <div class="duration">January 2023 - June 2023 | Bengaluru, India</div>
+                    <ul>
+                        <li>Completed PEGA System Architect certification</li>
+                        <li>Built six real-time automation use cases</li>
+                        <li>Improved workflow efficiency and process accuracy</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Technicia Diacs</h3>
+                    <div class="position">In-Plant Trainee</div>
+                    <div class="duration">June 2022 - August 2022 | Bengaluru, India</div>
+                    <ul>
+                        <li>Designed industrial-grade PCBs and IR sensor boards</li>
+                        <li>Gained hands-on exposure to instrumentation and control panels</li>
+                        <li>Enhanced understanding of industrial automation systems</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications" class="section">
+            <div class="section-header">
+                <h2 class="section-title">Publications</h2>
+                <p class="section-subtitle">Contributing to academic research and knowledge</p>
+            </div>
+            <div class="publication-card">
+                <h3>Optimal Sizing and Location of Distributed Generation Using Genetic Algorithm</h3>
+                <div class="publication-meta">
+                    International Journal of Advances in Engineering and Management (IJAEM) | 2022
+                </div>
+                <p>
+                    Analyzed the IEEE-14 bus system to study how Distributed Generation placement affects power loss, voltage profiles, and network efficiency. Built baseline power-flow model and implemented Newton-Raphson calculations to evaluate bus-level performance. Integrated Genetic Algorithm to optimize DG location and sizing, achieving significant reduction in real power losses.
+                </p>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Achievements & Recognition</h2>
+                <p class="section-subtitle">Milestones and accomplishments along the journey</p>
+            </div>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <h4>All India Winner</h4>
+                    <p>Bosch IEEE Hackathon 2022 - Electric Vehicle Drivetrain Design</p>
+                </div>
+                <div class="achievement-card">
+                    <h4>IELTS Academic</h4>
+                    <p>Overall Band Score: 7.5 (L: 8.5, R: 8.5, W: 6.5, S: 7.0)</p>
+                </div>
+                <div class="achievement-card">
+                    <h4>Mechatronics Certified</h4>
+                    <p>Industry 4.0 Certification from Bosch Rexroth</p>
+                </div>
+                <div class="achievement-card">
+                    <h4>D2C Campaign Success</h4>
+                    <p>Led 'Lipstick Day Scavenger Hunt' with 30,000+ participants nationwide</p>
+                </div>
+                <div class="achievement-card">
+                    <h4>Community Leadership</h4>
+                    <p>Volunteer Team Lead at Robin Hood Army, Bengaluru</p>
+                </div>
+                <div class="achievement-card">
+                    <h4>Academic Excellence</h4>
+                    <p>B.Tech in Electrical & Electronics Engineering - CGPA: 8.27/10</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="section-header">
+                <h2 class="section-title">Let's Connect</h2>
+                <p class="section-subtitle">Open to opportunities in embedded systems and control engineering</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <p>
+                        I'm currently seeking opportunities to pursue a Master's degree in Electrical Engineering, with a focus on embedded systems, power electronics, and intelligent control platforms.
+                    </p>
+                    <p>
+                        Whether you're interested in collaboration, research opportunities, or just want to discuss engineering, I'd love to hear from you.
+                    </p>
+                </div>
+                <div class="contact-links">
+                    <a href="/cdn-cgi/l/email-protection#254b44534e574c56151415654248444c490b464a48" class="contact-link">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <div style="font-size: 0.75rem; color: var(--text-muted);">Email</div>
+                            <div><span class="__cf_email__" data-cfemail="ddb3bcabb6afb4aeedeced9dbab0bcb4b1f3beb2b0">[email&#160;protected]</span></div>
+                        </div>
+                    </a>
+                    <a href="https://www.linkedin.com/in/navneet-krishnan-083066236" class="contact-link" target="_blank">
+                        <div class="contact-icon">💼</div>
+                        <div>
+                            <div style="font-size: 0.75rem; color: var(--text-muted);">LinkedIn</div>
+                            <div>navneet-krishnan-083066236</div>
+                        </div>
+                    </a>
+                    <a href="tel:+919880779295" class="contact-link">
+                        <div class="contact-icon">📱</div>
+                        <div>
+                            <div style="font-size: 0.75rem; color: var(--text-muted);">Phone</div>
+                            <div>+91 9880779295</div>
+                        </div>
+                    </a>
+                    <div class="contact-link">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <div style="font-size: 0.75rem; color: var(--text-muted);">Location</div>
+                            <div>Bengaluru, India</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Navneet Krishnan. Designed with passion for engineering excellence.</p>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.project-card, .timeline-item, .achievement-card, .publication-card').forEach(el
